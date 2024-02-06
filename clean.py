@@ -20,6 +20,9 @@ def clean_data(input1, input2, output):
 
     # Save cleaned data to the output file
     merged_data.to_csv(output, index=False)
+    # Print the shape of the output file
+    output_data = pd.read_csv(output)
+    print("Output file shape:", output_data.shape)
 
 if __name__ == "__main__":
     # Create argument parser
@@ -28,8 +31,8 @@ if __name__ == "__main__":
     parser.add_argument("input2", help="Path to respondent_other.csv file")
     parser.add_argument("output", help="Path to output file")
 
-    # Parse command-line arguments
+
     args = parser.parse_args()
 
-    # Call the data cleaning function
+
     clean_data(args.input1, args.input2, args.output)
